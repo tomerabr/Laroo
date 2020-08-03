@@ -36,7 +36,8 @@ for i in range(1,num_of_players+1):
     players.append(Player())
     giveCards()
     
-#choose hukum/do laru
+#choose hukum/do laru...
+
 for i in range(1,num_of_players+1):
     giveCards()
     print("Player number " + str(i))
