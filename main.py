@@ -2,6 +2,15 @@ from card import Card,Shape
 from player import Player
 import random
 
+def giveCards():
+    count = 0
+    while count < 4:
+        random.shuffle(cards)
+        card = random.choice(cards)
+        players[i-1].giveCard(card)
+        cards.remove(card)
+        count += 1
+
 print("Please choose 4 or 6 players")
 num_of_players = int(input())
 while True:
@@ -21,17 +30,16 @@ for shape in Shape:
         cards.append(card)
         #card.printCard()
 
-#init players with first 4 cards
+#init players with first 4 cards and then give another 4 cards
 players = []
 for i in range(1,num_of_players+1):
     players.append(Player())
-    count = 0
-    while count < 4:
-        card = random.choice(cards)
-        players[i-1].giveCard(card)
-        cards.remove(card)
-        count += 1
+    giveCards()
+    
+#choose hukum/do laru
+for i in range(1,num_of_players+1):
+    giveCards()
+    print("Player number " + str(i))
     players[i-1].printCards()
+
         
-
-

@@ -6,6 +6,9 @@ class Shape(Enum):
     SPADES = 3
     CLUBS = 4
 
+    def __lt__(self,other):
+        return self.value < other.value
+
 class Card:
     def __init__(self, value, shape):
         self.value = value
@@ -26,5 +29,9 @@ class Card:
             Shape.CLUBS:"♣",
         }[self.shape]
 
-        print(name,shape)
+        print(name,shape, end=" ")
+
+    def __lt__(self,other):
+        return ((self.shape,self.value) < (other.shape,other.value))
+
 
